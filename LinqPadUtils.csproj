@@ -57,11 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LinqPadFileWrapper.cs" />
     <Compile Include="LinqPadPdfWrapper.cs" />
     <Compile Include="FakeImage.cs" />
     <Compile Include="FakeRect.cs" />
     <Compile Include="LinqpadClientContext.cs" />
     <Compile Include="LinqPadPdfWrapperFactory.cs" />
+    <Compile Include="LinqPadStreamWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
