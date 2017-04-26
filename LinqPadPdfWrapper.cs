@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Hilda.Shared.PDF.Contracts.Enums;
 using Hilda.Shared.PDF.Contracts.Interfaces;
 using Hilda.Shared.PDF.Contracts.Models;
@@ -211,7 +212,7 @@ namespace LinqPadUtils
 
         private static double ToDouble(string coords)
         {
-            return string.IsNullOrEmpty(coords) ? 0D : double.Parse(coords);
+            return string.IsNullOrEmpty(coords) ? 0D : double.Parse(coords, NumberStyles.AllowDecimalPoint, new NumberFormatInfo { CurrencyDecimalSeparator = "."});
         }
 
         public void SetRect(double x, double y, double width, double height)
@@ -254,4 +255,5 @@ namespace LinqPadUtils
             //
         }
     }
+
 }
