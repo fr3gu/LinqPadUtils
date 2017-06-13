@@ -254,5 +254,90 @@ namespace LinqPadUtils
         {
             //
         }
+
+        public void SetHeadHeight(int height)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetHeadHeightFirst(int height)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFootHeight(int height)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetFootHeightFirst(int height)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetWidthMargin(int margin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetHeightMargin(int margin)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetHtmlOptions(PdfMediaType mediaType)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetBrowserWidth(int browserWidth)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string rawHtml)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string rawHtml, string headerRawHtml, string footerRawHtml)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string rawHtml, string headerRawHtml, string footerRawHtml, bool newPage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string rawHtml, string headerRawHtml, string footerRawHtml, string headerFirstRawHtml, string footerFirstRawHtml, bool newPage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string[] urls, string headerRawHtml, string footerRawHtml, string headerFirstRawHtml, string footerFirstRawHtml, bool newPage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void AddContent(string url, bool newPage)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetMarginsFirst()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetMargins()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
