@@ -39,11 +39,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Hilda.Shared.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Hilda.Shared.Contracts.1.0.0.23\lib\net46\Hilda.Shared.Contracts.dll</HintPath>
+      <HintPath>packages\Hilda.Shared.Contracts.1.0.0.29\lib\net46\Hilda.Shared.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Hilda.Shared.PDF.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Hilda.Shared.PDF.Contracts.1.0.0.9\lib\net46\Hilda.Shared.PDF.Contracts.dll</HintPath>
+      <HintPath>packages\Hilda.Shared.PDF.Contracts.1.0.0.14\lib\net46\Hilda.Shared.PDF.Contracts.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
