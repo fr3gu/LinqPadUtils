@@ -6,7 +6,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using Hilda.Shared.PDF.Contracts.Enums;
 using Hilda.Shared.PDF.Contracts.Interfaces;
@@ -16,28 +18,14 @@ namespace LinqPadUtils
 {
     public class LinqPadPdfWrapper : IPdfWrapper
     {
-        private int _pageId;
         private readonly List<int> _pages;
         private int _browserWidth;
-        private int _fontCount;
         private double _hPos;
-        private int _imageCount;
         private bool _isTopDown;
+        private int _objectCount;
+        private int _pageId;
         private FakeRect _rect;
         private double _vPos;
-
-        public LinqPadPdfWrapper(string fileName)
-        {
-            Console.WriteLine("Created PDF...(" + fileName + ")");
-            FileName = fileName;
-            _rect = null;
-            _imageCount = 0;
-            _fontCount = 0;
-            _isTopDown = false;
-            _pageId = 0;
-            _pages = new List<int> {0};
-            _browserWidth = 0;
-        }
 
         public void AddContent(string rawHtml)
         {
@@ -71,32 +59,38 @@ namespace LinqPadUtils
 
         public int AddFont(string fontName)
         {
-            return _fontCount++;
+            return _objectCount++;
+        }
+
+        public int AddImageBitmap(Bitmap bm, bool transparent)
+        {
+            Console.WriteLine($"Adding bitmap image... ({bm.Size.ToString()})");
+            return _objectCount++;
         }
 
         public int AddImageCopy(int imageId)
         {
-            return _imageCount++;
+            return _objectCount++;
         }
 
         public int AddImageFile(string imageFilePath, int frame)
         {
-            return _imageCount++;
+            return _objectCount++;
         }
 
         public int AddImageHtml(string imageHtml)
         {
-            return _imageCount++;
+            return _objectCount++;
         }
 
         public int AddImageObject(IPdfImage theImg, bool transparent)
         {
-            return _imageCount++;
+            return _objectCount++;
         }
 
-        public void AddLine(double x, double y, double w, double h)
+        public int AddLine(double x, double y, double w, double h)
         {
-            //
+            return _objectCount++;
         }
 
         public int AddPage()
@@ -106,9 +100,9 @@ namespace LinqPadUtils
             return newPageId;
         }
 
-        public void AddText(string text)
+        public int AddText(string text)
         {
-            //
+            return _objectCount++;
         }
 
         public void ConfigPdfDoc(PdfDocConfiguration config)
@@ -116,16 +110,31 @@ namespace LinqPadUtils
             //
         }
 
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void DeleteCurrentPage()
         {
             //
         }
 
-        public string FileName { get; }
-
-        public void FillRect()
+        public int EmbedFont(string fontName, PdfLanguageType languageType)
         {
-            //
+            throw new NotImplementedException();
+        }
+
+        public int EmbedFont(string fontName)
+        {
+            return _objectCount++;
+        }
+
+        public string FileName { get; set; }
+
+        public int FillRect()
+        {
+            return _objectCount++;
         }
 
         public void Flatten()
@@ -138,6 +147,16 @@ namespace LinqPadUtils
             //
         }
 
+        public Color GetColor()
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetFontSize()
+        {
+            throw new NotImplementedException();
+        }
+
         public double GetHPos()
         {
             return _hPos;
@@ -148,6 +167,26 @@ namespace LinqPadUtils
             return new FakeImage();
         }
 
+        public string GetInfo(int id, string type)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetLayer()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IPdfRect GetMediaBox()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetMediaBoxString()
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetPage() => _pageId;
 
         public byte[] GetPdfDocData()
@@ -155,9 +194,19 @@ namespace LinqPadUtils
             return new byte[] { };
         }
 
+        public IPdfPos GetPos()
+        {
+            throw new NotImplementedException();
+        }
+
         public IPdfRect GetRect()
         {
             return _rect ?? (_rect = new FakeRect());
+        }
+
+        public PdfPinToCorner GetRectPin()
+        {
+            throw new NotImplementedException();
         }
 
         public string GetRectString()
@@ -172,6 +221,37 @@ namespace LinqPadUtils
         }
 
         public int LayerCount => 1;
+
+        public void Read(Stream stream, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read(string path)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read(Stream stream)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read(string path, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Read(byte[] data, string password)
+        {
+            throw new NotImplementedException();
+        }
+
         public int Root => 1;
 
         public void Rotate(int angle, double anchorX, double anchorY)
@@ -192,6 +272,11 @@ namespace LinqPadUtils
         public void SetColor(string colorString)
         {
             //
+        }
+
+        public void SetColor(Color color)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetFont(int fontId)
@@ -284,9 +369,39 @@ namespace LinqPadUtils
             throw new NotImplementedException();
         }
 
+        public void SetMediaBox(string coords)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetMediaBox(IPdfRect rect)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetMediaBox(double x, double y, double width, double height)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SetPage(int pageId)
         {
             _pageId = pageId;
+        }
+
+        public void SetPos(string coords)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPos(double x, double y)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPos(IPdfPos pos)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetRect(string coords)
@@ -316,6 +431,11 @@ namespace LinqPadUtils
                 }
             }
             _rect = retVal;
+        }
+
+        public void SetRect(IPdfRect rect)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetRect(double x, double y, double width, double height)
@@ -361,6 +481,23 @@ namespace LinqPadUtils
         public void TransformReset()
         {
             //
+        }
+
+        public LinqPadPdfWrapper()
+        {
+            
+        }
+
+        public LinqPadPdfWrapper(string fileName)
+        {
+            Console.WriteLine("Created PDF...(" + fileName + ")");
+            FileName = fileName;
+            _rect = null;
+            _objectCount = 0;
+            _isTopDown = false;
+            _pageId = 0;
+            _pages = new List<int> {0};
+            _browserWidth = 0;
         }
 
         private static double ToDouble(string coords)
