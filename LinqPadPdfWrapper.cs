@@ -88,6 +88,11 @@ namespace LinqPadUtils
             return _objectCount++;
         }
 
+        public int AddImageToChain(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         public int AddLine(double x, double y, double w, double h)
         {
             return _objectCount++;
@@ -162,9 +167,19 @@ namespace LinqPadUtils
             return _hPos;
         }
 
+        public bool IsChainable(int pdfId)
+        {
+            throw new NotImplementedException();
+        }
+
         public IPdfImage GetImage(string imageFilePath)
         {
             return new FakeImage();
+        }
+
+        public IPdfImage GetImage(byte[] imageData)
+        {
+            throw new NotImplementedException();
         }
 
         public string GetInfo(int id, string type)
@@ -188,6 +203,10 @@ namespace LinqPadUtils
         }
 
         public int GetPage() => _pageId;
+        public int GetPageNumber()
+        {
+            throw new NotImplementedException();
+        }
 
         public byte[] GetPdfDocData()
         {
@@ -218,6 +237,36 @@ namespace LinqPadUtils
         public double GetVPos()
         {
             return _vPos;
+        }
+
+        public double GetHeadHeightFirst()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetHeadHeight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetFootHeightFirst()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetFootHeight()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetWidthMargin()
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetHeightMargin()
+        {
+            throw new NotImplementedException();
         }
 
         public int LayerCount => 1;
@@ -253,6 +302,7 @@ namespace LinqPadUtils
         }
 
         public int Root => 1;
+        public int PageCount { get; }
 
         public void Rotate(int angle, double anchorX, double anchorY)
         {
@@ -387,6 +437,11 @@ namespace LinqPadUtils
         public void SetPage(int pageId)
         {
             _pageId = pageId;
+        }
+
+        public void SetPageNumber(int pageNumber)
+        {
+            throw new NotImplementedException();
         }
 
         public void SetPos(string coords)

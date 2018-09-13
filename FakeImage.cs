@@ -9,6 +9,11 @@ namespace LinqPadUtils
             //
         }
 
+        public void SetData(byte[] data)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public double Width => 640;
         public double Height => 480;
         public dynamic GetImage()
