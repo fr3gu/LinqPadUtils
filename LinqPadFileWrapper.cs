@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using Hilda.Shared.Contracts.Models;
 
 namespace LinqPadUtils
@@ -7,7 +8,7 @@ namespace LinqPadUtils
     {
         private readonly string _absoluteAppPath;
         private readonly string _absoluteOpen24Path;
-        
+
         public LinqPadFileWrapper(string absoluteAppPath, string absoluteOpen24Path)
         {
             this._absoluteAppPath = absoluteAppPath;
@@ -28,6 +29,15 @@ namespace LinqPadUtils
         public void WriteAllBytes(string fileName, byte[] data)
         {
             this.WriteAllBytes(fileName, data, false);
+        }
+
+        public byte[] ReadAllBytes(string fileName)
+        {
+            var lorem = Encoding.UTF8.GetBytes("Lorem ipsum");
+
+            Console.WriteLine($"{nameof(LinqPadFileWrapper)}:: Fejkar läsning från fil: {fileName} ({lorem.Length} bytes med data, prependAbsolutePaths: {false})");
+
+            return lorem;
         }
 
         public void WriteAllBytes(string fileName, byte[] data, bool prependAbsolutePaths)

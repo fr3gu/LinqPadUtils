@@ -39,10 +39,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Hilda.Shared.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Hilda.Shared.Contracts.1.0.0.30\lib\net46\Hilda.Shared.Contracts.dll</HintPath>
+      <HintPath>packages\Hilda.Shared.Contracts.BLL.1.0.1.34\lib\net46\Hilda.Shared.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Hilda.Shared.Contracts.BLL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Hilda.Shared.Contracts.BLL.1.0.1.34\lib\net46\Hilda.Shared.Contracts.BLL.dll</HintPath>
+    </Reference>
+    <Reference Include="Hilda.Shared.Contracts.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Hilda.Shared.Contracts.BLL.1.0.1.34\lib\net46\Hilda.Shared.Contracts.DAL.dll</HintPath>
     </Reference>
     <Reference Include="Hilda.Shared.PDF.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Bizsys.Hilda.Shared.PDF.Contracts.1.0.0.36\lib\net46\Hilda.Shared.PDF.Contracts.dll</HintPath>
+      <HintPath>packages\Hilda.Shared.PDF.Contracts.1.0.0.31\lib\net46\Hilda.Shared.PDF.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
